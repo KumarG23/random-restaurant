@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  cursor: url(assets/rocket.png), auto;
 }
 body {
   justify-content: center;
@@ -135,6 +136,7 @@ body {
   max-height: 25%;
   max-width: 25%;
   animation: slideUp 2s ease-in .5s;
+  border-radius: 20%;
 }
 
 @keyframes slideUp {

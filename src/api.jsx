@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const URL = `https://www.jsonkeeper.com/b/MDXW`;
+const URL = `https://raw.githubusercontent.com/bootcamp-students/random-restaurant-json/main/foodList.json`;
 
 const Menu = ({ renderMenuItems }) => {
     const [menuItems, setMenuItems] = useState([]);

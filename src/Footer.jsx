@@ -5,7 +5,8 @@ function Footer() {
     height: '200px',
     width: '50%',
     margin: 'auto',
-    marginTop: '25px'
+    marginTop: '25px',
+    zIndex: '-1'
   };
 
   const defaultCenter = {
@@ -17,7 +18,8 @@ function Footer() {
   return (
     <LoadScript id="map"
     googleMapsApiKey="AIzaSyA-jAZg1fwytjvDPG9uaOkarPdRqzxhj_4">
-      <GoogleMap clas
+      <GoogleMap
+      id="map"
       mapContainerStyle={mapStyles}
       zoom={15}
       center={defaultCenter}>
