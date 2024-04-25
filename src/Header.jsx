@@ -7,7 +7,7 @@ function Header() {
   return (
     <nav className="navbar navbar-expand-md navbar-light sticky-top nav-bar" id='nav'>
       <div className="container d-flex flex-row">
-        <img src={logo} className="rounded float-start"></img>
+        <img src={logo} className="rounded float-start" id='logo'></img>
         <span className="mx-auto fs-1 fw-bold" id='kitchen'>Kumar's Kosmic Kitchen</span>
         <button className="navbar-toggler" type="button" data-toggle="collapse" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

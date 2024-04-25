@@ -22,10 +22,21 @@ body {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: transparent;
+  text-shadow: 0 0 10px #9fca3d,
+               0 0 20px #f89b33;
 }
 
 #nav {
-  background-color: #f89b33;
+  background: linear-gradient(to right, #0e0e1a, #1a1a2e);
+  box-shadow: 0 0 10px #4c00ff, /* Cyan glow */
+              0 0 20px #00ffff, /* Cyan glow */
+              0 0 30px #4c00ff, /* Cyan glow */
+              0 0 40px #00ffff, /* Cyan glow */
+              0 0 50px #00ffff;
+}
+
+#logo {
+  filter: drop-shadow(0 0 15px #00ffff);
 }
 
 #navitem {
@@ -40,12 +51,28 @@ body {
 }
 
 .box {
-  display: flex;
+  /* display: flex; */
   justify-content: center;
-  background-color: lightblue;
+  background: linear-gradient(45deg, #9fca3d, #f89b33);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 20px;
   margin: 10px;
+  box-shadow: 0 0 10px #00ffff, /* Cyan glow */
+              0 0 20px #00ffff, /* Cyan glow */
+              0 0 30px #00ffff, /* Cyan glow */
+              0 0 40px #00ffff, /* Cyan glow */
+              0 0 50px #00ffff;
+}
 
+#menuTop {
+  text-shadow: 0 0 10px white,
+               0 0 20px blue, 
+               0 0 30px white; 
+}
+
+#category {
+  text-shadow: 0 0 10px white,
+               0 0 20px yellow, 
+               0 0 30px white; 
 }
