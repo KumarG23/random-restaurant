@@ -1,7 +1,8 @@
 function Footer() {
   return (
     <div>
-      Footer
+      <p>348 E Main St, Lexington, KY</p>
+      <p>Hours: open 24/7!</p>
     </div>
   )
 }
