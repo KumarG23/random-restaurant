@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  cursor: url(assets/rocket.png), auto;
+  /* cursor: url(assets/rocket.png), auto; */
 }
 body {
   justify-content: center;
