@@ -1,35 +1,44 @@
-import { useState } from "react";
-import Menu from "./api";
-import { Item } from "./item";
-import { OrbitSpace } from 'orbit-space';
-import star from './assets/star.png';
+import { useState } from "react"; // Importing the useState hook from React
+import Menu from "./api"; // Importing the Menu component from the API file
+import { Item } from "./item"; // Importing the Item component
+import { OrbitSpace } from 'orbit-space'; // Importing the OrbitSpace component
+import star from './assets/star.png'; // Importing an image asset
 
 function App() {
+  // State to hold the menu items
   const [items, setItems] = useState([]);
 
   // Function to render menu items
   const renderMenuItems = (menuItems) => {
+    // Sorting menu items by category
     const sortedItems = sortCategory(menuItems);
+    // Updating state with sorted menu items
     setItems(sortedItems);
   };
 
+  // Function to sort menu items by category
   const sortCategory = (menuItems) => {
     const sortedItems = {};
+    // Iterating over menu items to categorize them
     menuItems.forEach(item => {
       const { category } = item;
+      // if category doesn't already exist create new category array to store items for that category
       if (!sortedItems[category]) {
         sortedItems[category] = [];
       }
+      // Adding item to its respective category
       sortedItems[category].push(item);
     });
-    return sortedItems;
+    return sortedItems; // Returning sorted items
   };
 
   return (
-    <div className="pt-5" id="menuContainer" style={{ }}>
-      <OrbitSpace />
+    <div className="pt-5" id="menuContainer">
+      <OrbitSpace /> {/* Rendering the OrbitSpace component for visual effect */}
+      {/* Navigation buttons */}
       <div id="btns" className="d-flex col-sm-6">
         <ul id="btns" className="d-flex col-sm-12 col-lg-4 mx-auto ">
+          {/* Creating links to different sections */}
           <li><a href="#Breakfast"></a></li>
           <li><a href="#Appetizer"></a></li>
           <li><a href="#Lunch"></a></li>
@@ -37,10 +46,12 @@ function App() {
           <li><a href="#Drink"></a></li>
         </ul>
       </div>
+      {/* Heading */}
       <h1 id="menuTop" style={{color: "white"}}>Menu</h1>
-      {/* Render the Menu component and pass the renderMenuItems function */}
+      {/* Buttons by category */}
       <div id="btnsContainer" className="btn-group" role="group">
         <ul id="btns1" className="btn-group flex-wrap" role="group">
+          {/* Creating buttons to go to category */}
           <li><a href="#Breakfast" className="btn">Breakfast</a></li>
           <li><a href="#Appetizer" className="btn">Appetizer</a></li>
           <li><a href="#Lunch" className="btn">Lunch</a></li>
@@ -48,23 +59,25 @@ function App() {
           <li><a href="#Drink" className="btn">Drinks</a></li>
         </ul>
       </div>
+      {/* Image */}
       <div className="ship-container">
-        <img src={star} className="ship"></img>
+        <img src={star} className="ship" alt="Star" /> 
       </div>
+      {/* Rendering the Menu component and passing the renderMenuItems function */}
       <Menu renderMenuItems={renderMenuItems} />
-      {/* Render the items using the Item component */}
+      {/* Rendering items by category using the Item component */}
       {Object.keys(items).map(category => (
         <div key={category}>
+          {/* changed id so that buttons would go to rendered category */}
           <h2 id={category} className="pt-5 text-light" style={{textShadow: '0 0 10px white, 0 0 20px yellow, 0 0 30px white'}}>{category}</h2>
+          {/* Rendering items */}
           {items[category].map(item => (
-            <Item key={item.id} item={item} />
+            <Item key={item.id} item={item} /> // Passing each item to the Item component
           ))}
-          </div>
+        </div>
       ))}
     </div>
   );
 }
 
-
 export default App;
-
