@@ -17,6 +17,8 @@ function MyMap() {
   const apiKey = import.meta.env.VITE_API_KEY;
 
   return (
+    <div className="mt-3">
+      <span className="text-light" id="address">348 E Main St, Lexington, KY</span>
     <LoadScript googleMapsApiKey={apiKey}>
       <GoogleMap
         mapContainerStyle={mapStyles}
@@ -26,6 +28,7 @@ function MyMap() {
         <Marker position={defaultCenter} />
       </GoogleMap>
     </LoadScript>
+    </div>
   );
 }
 

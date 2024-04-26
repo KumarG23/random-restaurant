@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <div className="pt-5" id="menuContainer">
+    <div className="pt-5 pb-2" id="menuContainer">
       <OrbitSpace /> {/* OrbitSpace component */}
       {/* Navigation buttons */}
       
