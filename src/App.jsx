@@ -34,18 +34,9 @@ function App() {
 
   return (
     <div className="pt-5" id="menuContainer">
-      <OrbitSpace /> {/* Rendering the OrbitSpace component for visual effect */}
+      <OrbitSpace /> {/* OrbitSpace component */}
       {/* Navigation buttons */}
-      <div id="btns" className="d-flex col-sm-6">
-        <ul id="btns" className="d-flex col-sm-12 col-lg-4 mx-auto ">
-          {/* Creating links to different sections */}
-          <li><a href="#Breakfast"></a></li>
-          <li><a href="#Appetizer"></a></li>
-          <li><a href="#Lunch"></a></li>
-          <li><a href="#Dinner"></a></li>
-          <li><a href="#Drink"></a></li>
-        </ul>
-      </div>
+      
       {/* Heading */}
       <h1 id="menuTop" style={{color: "white"}}>Menu</h1>
       {/* Buttons by category */}
