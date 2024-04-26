@@ -22,7 +22,7 @@ function MyMap() {
     <LoadScript googleMapsApiKey={apiKey}>
       <GoogleMap
         mapContainerStyle={mapStyles}
-        zoom={10}
+        zoom={17}
         center={defaultCenter}
       >
         <Marker position={defaultCenter} />
