@@ -159,7 +159,7 @@ transform: translateX(100vw) translateY(100%) rotateZ(180deg)
 }
 
 15.001%, 18% {
-transform: translateX(100vw) translateY(30%) rotateZ(0deg)
+transform: translateX(100vw) translateY(40%) rotateZ(0deg)
 }
 
 40% {
@@ -184,7 +184,7 @@ transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
 }
 
 @keyframes fly2 {
-  98.001%, 0% {
+  99%, 0% {
     display: block;
 transform: translateY(200%) translateY(100vh) rotateZ(0deg)
 }
@@ -193,7 +193,7 @@ transform: translateY(200%) translateY(100vh) rotateZ(0deg)
 transform: translateY(100vw) translateY(100%) rotateZ(180deg)
 }
 
-15.001%, 18% {
+16%, 18% {
 transform: translateY(100vw) translateX(30%) rotateZ(0deg)
 }
 
@@ -201,7 +201,7 @@ transform: translateY(100vw) translateX(30%) rotateZ(0deg)
 transform: translateY(200%) translateX(3vh) rotateZ(-180deg)
 }
 
-40.001%, 43% {
+41%, 43% {
 transform: translateY(200%) translateX(100%) rotateZ(-180deg)
 }
 
@@ -209,7 +209,7 @@ transform: translateY(200%) translateX(100%) rotateZ(-180deg)
 transform: translateY(100vw) translateX(50vw) rotateZ(0deg)
 }
 
-65.001%, 68% {
+66%, 68% {
 transform: translateY(20vh) translateX(200%) rotateZ(180deg)
 }
 

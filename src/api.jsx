@@ -18,7 +18,7 @@ const Menu = ({ renderMenuItems }) => {
         });
     }, []);
 
-    // You can optionally return JSX to render something while the data is being fetched
+
     return (
       <div></div>
     );
