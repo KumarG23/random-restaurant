@@ -18,7 +18,7 @@ function Home() {
             <img src={star} className='ship'></img>
             <img src={asteroid} className='asteroid'></img>
             <img className='ship'></img>
-            <img src={saturn} className='saturn'></img>
+            {/* <img src={saturn} className='saturn'></img> */}
 
         </div>
         </div>

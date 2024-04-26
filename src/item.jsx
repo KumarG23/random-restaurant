@@ -1,5 +1,10 @@
 //import Menu from './api';
 
+const getSpiceLevel = (spiceLevel) => {
+  const pepperEmojis = ['🌶️', '🌶️🌶️', '🌶️🌶️🌶️', '🌶️🌶️🌶️🌶️',];
+
+  return pepperEmojis[spiceLevel - 1] || 'Not Spicy'; //-1 because index starts at 0.
+}
 
 // item component takes item object as prop and plug in properties such as item.title
 export const Item = ({ item }) => {
@@ -12,6 +17,9 @@ export const Item = ({ item }) => {
             <span className="badge rounded-pill bg-danger price">
               {item.price}
             </span>
+            <div className="d-flex justify-content-around align-items-center badge rounded-pill bg-light text-dark">
+            <span className="peppers">Spice Level: {getSpiceLevel(item.spicy_level)}</span>
+            </div>
           </div>
         </div>
       </div>
