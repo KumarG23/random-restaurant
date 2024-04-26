@@ -1,8 +1,7 @@
 import { useEffect } from "react"; // Importing useEffect hook from React
 import axios from "axios"; 
 
-const URL = `https://raw.githubusercontent.com/bootcamp-students/random-restaurant-json/main/foodList.json`; // URL for fetching menu items
-
+const URL = `https://raw.githubusercontent.com/bootcamp-students/random-restaurant-json/main/foodList.json`;
 const Menu = ({ renderMenuItems }) => {
     useEffect(() => {
         axios.get(URL) // Making a get request to the specified URL
@@ -15,7 +14,7 @@ const Menu = ({ renderMenuItems }) => {
             });
     }, []); // Empty dependency array ensures the effect runs only once. preventing endless page rendering.
 
-    // Menu component doesn't render anything directly, so returning an empty div
+    // Menu component doesn't render anything, so returning an empty div
     return (
         <div></div>
     );

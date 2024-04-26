@@ -1,4 +1,4 @@
-//import Menu from './api';
+
 
 const getSpiceLevel = (spiceLevel) => {
   const pepperEmojis = ['🌶️', '🌶️🌶️', '🌶️🌶️🌶️', '🌶️🌶️🌶️🌶️',];
