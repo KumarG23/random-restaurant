@@ -1,4 +1,4 @@
-import { useState } from "react"; // Importing the useState hook from React
+import { useState, useEffect } from "react"; // Importing the useState hook from React
 import Menu from "./api"; // Importing the Menu component from the API file
 import { Item } from "./item"; // Importing the Item component
 import { OrbitSpace } from 'orbit-space'; // Importing the OrbitSpace component
@@ -21,13 +21,13 @@ function App() {
     const sortedItems = {};
     // Iterating over menu items to categorize them
     menuItems.forEach(item => {
-      const { category } = item;
+      const { category_name } = item;
       // if category doesn't already exist create new category array to store items for that category
-      if (!sortedItems[category]) {
-        sortedItems[category] = [];
+      if (!sortedItems[category_name]) {
+        sortedItems[category_name] = [];
       }
       // Adding item to its respective category
-      sortedItems[category].push(item);
+      sortedItems[category_name].push(item);
     });
     return sortedItems; // Returning sorted items
   };
@@ -43,11 +43,11 @@ function App() {
       <div id="btnsContainer" className="btn-group" role="group">
         <ul id="btns1" className="btn-group flex-wrap" role="group">
           {/* Creating buttons to go to category */}
-          <li><a href="#Breakfast" className="btn">Breakfast</a></li>
-          <li><a href="#Appetizer" className="btn">Appetizer</a></li>
-          <li><a href="#Lunch" className="btn">Lunch</a></li>
-          <li><a href="#Dinner" className="btn">Dinner</a></li>
-          <li><a href="#Drink" className="btn">Drinks</a></li>
+          <li><a href="#Alien Appetizers" className="btn">Alien Appetizers</a></li>
+          <li><a href="#Martian Cuisine" className="btn">Martian Cuisine</a></li>
+          <li><a href="#Space Delicacies" className="btn">Space Delicacies</a></li>
+          <li><a href="#Earthly Eatables" className="btn">Earthly Eatables</a></li>
+          <li><a href="#Cosmic Concoctions" className="btn">Cosmic Concoctions</a></li>
         </ul>
       </div>
       {/* Image */}
@@ -57,12 +57,12 @@ function App() {
       {/* Rendering the Menu component and passing the renderMenuItems function */}
       <Menu renderMenuItems={renderMenuItems} />
       {/* Rendering items by category using the Item component */}
-      {Object.keys(items).map(category => (
-        <div key={category}>
+      {Object.keys(items).map(category_name => (
+        <div key={category_name}>
           {/* changed id so that buttons would go to rendered category */}
-          <h2 id={category} className="pt-5 text-light" style={{textShadow: '0 0 10px white, 0 0 20px yellow, 0 0 30px white'}}>{category}</h2>
+          <h2 id={category_name} className="pt-5 text-light" style={{textShadow: '0 0 10px white, 0 0 20px yellow, 0 0 30px white'}}>{category_name}</h2>
           {/* Rendering items */}
-          {items[category].map(item => (
+          {items[category_name].map(item => (
             <Item key={item.id} item={item} /> // Passing each item to the Item component
           ))}
         </div>

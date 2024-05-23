@@ -1,26 +1,42 @@
-import { useEffect } from "react"; // Importing useEffect hook from React
-import axios from "axios"; 
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
-const URL = `https://raw.githubusercontent.com/bootcamp-students/random-restaurant-json/main/foodList.json`;
+const URL = 'http://127.0.0.1:8000/';
+const endpoints = [
+  'category',
+  'item',
+  'customer',
+  'order',
+  'order-items'
+];
+
 const Menu = ({ renderMenuItems }) => {
-    useEffect(() => {
-        axios.get(URL) // Making a get request to the specified URL
-            .then(response => {
-                // Limiting the number of fetched items to 15 and passing them directly to renderMenuItems
-                renderMenuItems(response.data.slice(0, 15));
-            })
-            .catch(error => {
-                console.error('Fetch Error', error); // Logging error if fetching fails
-            });
-    }, []); // Empty dependency array ensures the effect runs only once. preventing endless page rendering.
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const responses = await Promise.all(endpoints.map(endpoint => axios.get(`${URL}${endpoint}/`)));
+        const fetchedData = responses.reduce((acc, response, index) => {
+          acc[endpoints[index]] = response.data;
+          return acc;
+        }, {});
+        console.log('Fetched data: ', fetchedData);
+        if (fetchedData.item && Array.isArray(fetchedData.item)) {
+          renderMenuItems(fetchedData.item);  // Ensure 'item' is an array
+        } else {
+          console.error('Fetched item data is not an array:', fetchedData.item);
+        }
+      } catch (error) {
+        console.error('Data error', error);
+      }
+    };
+    getData();
+  }, []);
 
-    // Menu component doesn't render anything, so returning an empty div
-    return (
-        <div></div>
-    );
+  return <div></div>;
 };
 
 export default Menu;
+
 
 
 

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { CartContext } from "./main";
 
 
 const getSpiceLevel = (spiceLevel) => {
@@ -8,6 +10,7 @@ const getSpiceLevel = (spiceLevel) => {
 
 // item component takes item object as prop and plug in properties such as item.title
 export const Item = ({ item }) => {
+  const { addToCart } = useContext(CartContext);
     return (
       <div className="col-sm-6 col-md-5 col-lg-4 mx-auto pt-5">
         <div className="box">
@@ -22,10 +25,14 @@ export const Item = ({ item }) => {
             </div>
           </div>
         </div>
+        <div>
+              <button className="d-flex justify-content-around align-items-center badge rounded-pill bg-success text-light m-0" id="add-button" onClick={() => addToCart(item)}>Add to Cart</button>
+            </div>
       </div>
     );
   };
   
+  export default Item;
 
 
 

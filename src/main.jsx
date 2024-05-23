@@ -16,18 +16,38 @@ import ErrorPage from './ErrorPage'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
+import Cart from './Cart'
+import { createContext, useState } from 'react'
+
+export const CartContext = createContext();
 
 const site = import.meta.env.BASE_URL
 
 
 function Layout() {
+  const [cart, setCart] = useState([]);
+
+    const addToCart = (item) => {
+        const { id, title, price} = item;
+        const newItem = { id, title, price}
+        console.log('Add item: ', item);
+        
+        setCart((prevCart)=> {
+          const updatedCart = [...prevCart, newItem];
+          console.log('updated cart: ', updatedCart);
+          return updatedCart;
+        })
+    };
+
   return (
       <>
+      <CartContext.Provider value={{ cart, addToCart }}>
         <Header />
         <div id='page-content'>
           <Outlet />
         </div>
         <Footer />
+      </CartContext.Provider>
       </>
   )
 }
@@ -50,6 +70,8 @@ const router = createBrowserRouter([
         path: '/home',
         element: <Home />
       },
+        {path: '/cart',
+        element: <Cart />}
     ]
   }
 ], {
@@ -57,5 +79,6 @@ const router = createBrowserRouter([
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
-)
+  
+    <RouterProvider router={router} />
+);

@@ -16,6 +16,7 @@ function Header() {
          <Link to='/Home' className="nav-item nav-link" id='navitem'>Home</Link>
          <Link to='/' className="nav-item nav-link" id='navitem'>Menu</Link>
          <Link to='/About' className="nav-item nav-link" id='navitem'>About</Link>
+         <Link to='/cart' className='nav-item nav-link' id='navitem'>Cart</Link>
          </div>
       </div>
     </nav>
