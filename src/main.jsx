@@ -19,7 +19,7 @@ import Home from './Home'
 import Cart from './Cart'
 import { createContext, useState } from 'react'
 
-export const CartContext = createContext();
+export const CartContext = createContext(); // makes cart state global
 
 const site = import.meta.env.BASE_URL
 
@@ -29,11 +29,12 @@ function Layout() {
 
     const addToCart = (item) => {
         const { id, title, price} = item;
-        const newItem = { id, title, price}
+        const newItem = { id, title, price} 
         console.log('Add item: ', item);
         
         setCart((prevCart)=> {
-          const updatedCart = [...prevCart, newItem];
+          const updatedCart = [...prevCart, newItem]; // had to add this because the first item added to the cart wouldn't show in cart
+          // localStorage.setItem('cart', JSON.stringify(updatedCart))
           console.log('updated cart: ', updatedCart);
           return updatedCart;
         })
@@ -41,7 +42,7 @@ function Layout() {
 
   return (
       <>
-      <CartContext.Provider value={{ cart, addToCart }}>
+      <CartContext.Provider value={{ cart, addToCart }}> 
         <Header />
         <div id='page-content'>
           <Outlet />
@@ -50,8 +51,7 @@ function Layout() {
       </CartContext.Provider>
       </>
   )
-}
-
+} // wrap cart context around everything
 const router = createBrowserRouter([
   {
     element: <Layout />,
